@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Settings -->
+    <string name="pref_category_title_weighing">Weighing</string>
+    <string name="pref_category_title_connection">Bluetooth connection</string>
+    <string name="pref_category_title_equipment">Equipment management</string>
+    <string name="pref_digital_input_enabled">Digital input</string>
+    <string name="pref_equipment_enabled">Scan equipment</string>
+    <string name="pref_equipment_scan_time">Scan period</string>
+    <string name="pref_equipment_scan_time_summary">Scanning %s for the equipment.</string>
+
+    <string-array name="pref_units_entries">
+        <item>Kilograms <i>[kg]</i></item>
+        <item>Quintals <i>[q]</i></item>
+        <item>Tons <i>[t]</i></item>
+        <item>Pounds <i>[lb]</i></item>
+    </string-array>
+    <string-array name="pref_units_values">
+        <item>[kg]</item>
+        <item>[q]</item>
+        <item>[t]</item>
+        <item>[lb]</item>
+    </string-array>
+
+    <string name="pref_weighing_method_default">Bruto</string>
+    <string-array name="pref_weighing_method_entries">
+        <item>Net weight</item>
+        <item>Gross weight</item>
+    </string-array>
+    <string-array name="pref_weighing_method_values">
+        <item>Net</item>
+        <item>Gross</item>
+    </string-array>
+
+    <string-array name="pref_precision_entries">
+        <item>Zero <i>13542</i></item>
+        <item>One <i>141,1</i></item>
+        <item>Two <i>12,65</i></item>
+        <item>Three <i>5,621</i></item>
+    </string-array>
+    <string-array name="pref_precision_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="pref_accuracy_value_entries">
+        <item>10 [kg]</item>
+        <item>20 [kg]</item>
+        <item>50 [kg]</item>
+        <item>100 [kg]</item>
+    </string-array>
+    <string-array name="pref_accuracy_value_values">
+        <item>10</item>
+        <item>20</item>
+        <item>50</item>
+        <item>100</item>
+    </string-array>
+
+    <!-- Tire Settings -->
+
+    <!-- DiapressConfigurator -->
+
+    <!-- Notification -->
+    <string name="notification_tpms_status">Falta uno o más sensores (%d de %d)</string>
+    <string name="notification_new_mission">You have received a new mission.</string>
+
+    <!-- Permissions-->
+    <string name="activity_missions">Misiones</string>
+    <string name="no_mission_title">Iniciar o crear misión</string>
+    <string name="mission_untitled">Nueva misión</string>
+    <string name="missions_message_empty">Ninguna misión.\nPor favor, inténtelo de nuevo más tarde.</string>
+    <string name="dialog_installa_packages_permissions_denied_message">Not enough permissions to install the update. Access the settings to grant permissions.</string>
+    <string name="menu_check_update">Actualizar T1</string>
+    <string name="button_completed">Completed</string>
+    <string name="button_close">Close</string>
+    <string name="button_suspend">Interrupt</string>
+    <string name="dialog_target_weight">Target weight: %d</string>
+
+    <!-- Missions -->
+    <string name="mission_state_new">Nuevo</string>
+    <string name="mission_state_sent">Enviar</string>
+    <string name="mission_state_started">Comenzado</string>
+    <string name="mission_state_completed">Terminado</string>
+    <string name="mission_state_interrupted">Interrumpido</string>
+    <string name="mission_state_aborted">Abortado</string>
+
+    <string name="action_edit">Editar encabezado</string>
+    <string name="action_print">Impresión</string>
+    <string name="action_printer">Impresora</string>
+    <string name="activity_adjustment">Ajustamiento</string>
+    <string name="activity_calibration">Calibración</string>
+    <string name="activity_device_list">Lista de dispositivos</string>
+    <string name="activity_preferences">Preferencias</string>
+    <string name="adjustment_adc_max">ADC máx</string>
+    <string name="adjustment_adc_min">ADC min</string>
+    <string name="adjustment_adc_summary">Número entero</string>
+    <string name="adjustment_pressure_max">Presión máxima</string>
+    <string name="adjustment_pressure_min">Presión min</string>
+    <string name="adjustment_pressure_summary">Presión en milibares</string>
+    <string name="adjustment_sensor">Sensores</string>
+    <string name="adjustment_sensor_1">Sensor 1</string>
+    <string name="adjustment_sensor_2">Sensor 2</string>
+    <string name="adjustment_sensor_summary">Ajuste de sensores.</string>
+    <string name="adjustment_trailer">Remolque</string>
+    <string name="adjustment_trailer_summary">Ajuste de sensores.</string>
+    <string name="adjustment_truck">Camión</string>
+    <string name="adjustment_truck_summary">Ajuste de sensores.</string>
+    <string name="advanced_mode_active">Modo avanzado activo</string>
+    <string name="advanced_mode_not_active">Modo avanzado no activo</string>
+    <string name="app_version">Versión %s</string>
+    <string name="bluetooth_activate_error">No se puede activar Bluetooth.</string>
+    <string name="bluetooth_discovery_finished">Descubrimiento de dispositivos finalizado</string>
+    <string name="bluetooth_discovery_started">Se inició el descubrimiento de dispositivos</string>
+    <string name="bluetooth_unavailable">Bluetooth no disponible</string>
+    <string name="button_scan">Buscar dispositivos</string>
+    <string name="button_send_weight">Invia pesata</string>
+    <string name="calibration_pressure">Presión</string>
+    <string name="calibration_pressure_summary">Presión en milibares</string>
+    <string name="calibration_trailer">Remolque</string>
+    <string name="calibration_trailer_summary">Presión y peso de calibración.</string>
+    <string name="calibration_truck">Camión</string>
+    <string name="calibration_truck_summary">Presión y peso de calibración.</string>
+    <string name="calibration_weight">Peso</string>
+    <string name="calibration_weight_summary">Valor en kg</string>
+    <string name="collector_role">Camión</string>
+    <string name="container_check_digit">Dígito de control</string>
+    <string name="container_owner">Propietario</string>
+    <string name="container_serial">De serie</string>
+    <string name="container_tare">Tara en [kg]</string>
+    <string name="device_busy">El dispositivo está ocupado.</string>
+    <string name="device_calibration_loading">Cargando datos de calibración…</string>
+    <string name="device_connected">Dispositivo conectado.</string>
+    <string name="device_connecting">Dispositivo conectando…</string>
+    <string name="device_connection_failed">No puede conectarse.</string>
+    <string name="device_empty">Sin datos.</string>
+    <string name="device_get_info">Cargando información del dispositivo…</string>
+    <string name="device_not_connected">Dispositivo no conectado.</string>
+    <string name="device_rename_error">No se puede cambiar el nombre del dispositivo.</string>
+    <string name="device_rename_ok">Dispositivo renombrado correctamente.</string>
+    <string name="device_role_error">Rol no asignado.</string>
+    <string name="device_select_collector">Seleccionar Collector</string>
+    <string name="device_select_sensor">Seleccionar Sensor</string>
+    <string name="diagnostic_adc">ADC</string>
+    <string name="diagnostic_address">MAC address</string>
+    <string name="diagnostic_collector">%1$s (collector)</string>
+    <string name="diagnostic_firmware">Firmware</string>
+    <string name="diagnostic_sensor">%1$s (sensor)</string>
+    <string name="diagnostic_weight">Peso</string>
+    <string name="dialog_cancel">Cancelar</string>
+    <string name="dialog_commit_error">No se puede conectar a %1$s</string>
+    <string name="dialog_configuration_not_saved">Configuración no guardada correctamente.</string>
+    <string name="dialog_configuration_saved">Configuración guardada correctamente.</string>
+    <string name="dialog_configurator_select_collector">Seleccione un tractor para completar la configuración.</string>
+    <string name="dialog_configurator_wating">Espere a que se completen las tareas…</string>
+    <string name="dialog_connection_timeout">Tiempo de conexión agotado</string>
+    <string name="dialog_continue">Seguir</string>
+    <string name="dialog_delete">Eliminar</string>
+    <string name="dialog_device_configuration_not_saved">Configuración no guardada correctamente.</string>
+    <string name="dialog_device_configuration_saved">Configuración guardada correctamente.</string>
+    <string name="dialog_device_role_not_saved">Rol no guardado correctamente.</string>
+    <string name="dialog_device_role_saved">Rol se guardó correctamente.</string>
+    <string name="dialog_list_empty">Ningún dispositivo configurado.</string>
+    <string name="dialog_no">No</string>
+    <string name="dialog_ok">Okay</string>
+    <string name="dialog_permissions_denied_message">Para continuar, deje que su dispositivo otorgue los permisos requeridos en Configuración.</string>
+    <string name="dialog_pin_title">Código</string>
+    <string name="dialog_request_timeout">Operación abortada. La solicitud tardó demasiado.</string>
+    <string name="dialog_retry">Rever</string>
+    <string name="dialog_save">Salvar</string>
+    <string name="dialog_save_configuration">Guardar configuración</string>
+    <string name="dialog_saving_configuration">Guardando configuración</string>
+    <string name="dialog_settings">Configuraciones</string>
+    <string name="dialog_stop">Detener</string>
+    <string name="dialog_yes">Si</string>
+    <string name="edit_address">Habla a</string>
+    <string name="edit_copies">Número de copias:</string>
+    <string name="edit_email">E-mail</string>
+    <string name="edit_name">Nombre</string>
+    <string name="edit_phone">Teléfono</string>
+    <string name="menu_adjustment">Ajustamiento</string>
+    <string name="menu_advanced">Modo avanzado</string>
+    <string name="menu_backup">Backup</string>
+    <string name="menu_calibration">Calibración</string>
+    <string name="menu_clear_weighings">Pesajes claros</string>
+    <string name="menu_collector">Camión</string>
+    <string name="menu_configuration">Configuración T1</string>
+    <string name="menu_device_assign">Asigna dispositivo</string>
+    <string name="menu_device_rename">Rebautizar…</string>
+    <string name="menu_diagnostic">Diagnóstico</string>
+    <string name="menu_discovery">Escanear</string>
+    <string name="menu_export">Exportar…</string>
+    <string name="menu_model">Modelo de vehículo</string>
+    <string name="menu_preferences">Preferencias</string>
+    <string name="menu_print">Impresión</string>
+    <string name="menu_quit_advanced">Salir del modo avanzado</string>
+    <string name="menu_refresh">Recargar</string>
+    <string name="menu_sensor">Remolque</string>
+    <string name="menu_stop_service">DETENER</string>
+    <string name="menu_system_devices">Sensores</string>
+    <string name="menu_tpms_mute">Advertencia de apagado</string>
+    <string name="none_found">No se encontraron dispositivos</string>
+    <string name="none_paired">No se han emparejado dispositivos</string>
+    <string name="pref_accuracy_value">Valor de precisión</string>
+    <string name="pref_accuracy_value_summary">%1$s [kg]</string>
+    <string name="pref_autoconnect">Autoconectar</string>
+    <string name="pref_autoconnect_summary">Intenta conectarse al dispositivo.</string>
+    <string name="pref_autoconnect_value">Intentos de conexión</string>
+    <string name="pref_autoconnect_value_summary">Máximo de %1$s intentos.</string>
+    <string name="pref_correction_weight">Peso de corrección</string>
+    <string name="pref_precision">Precisión de decimales</string>
+    <string name="pref_threshold">Umbral de carga</string>
+    <string name="pref_threshold_summary">Peso bruto del umbral de carga.</string>
+    <string name="pref_threshold_value">Umbral de peso bruto</string>
+    <string name="pref_threshold_value_summary">%1$s [kg]</string>
+    <string name="pref_units">Unidades</string>
+    <string name="pref_weighing_method">Método de pesaje</string>
+    <string name="pref_weighing_method_gross">Bruto</string>
+    <string name="pref_weighing_method_net">Neto</string>
+    <string name="pref_weighing_method_summary">%1$s peso</string>
+    <string name="pref_weight_accuracy">Precisión de peso</string>
+    <string name="pref_weight_accuracy_summary">Precisión del peso total.</string>
+    <string name="printer_container">Container</string>
+    <string name="printer_datetime">dd/MM/yyyy HH:mm</string>
+    <string name="printer_discovery_select">Seleccione una impresora</string>
+    <string name="printer_email">Correo electrónico: %1$s</string>
+    <string name="printer_gross">Bruto</string>
+    <string name="printer_net">Neto</string>
+    <string name="printer_none">Ninguna impresora seleccionada</string>
+    <string name="printer_phone">Ph. %1$s</string>
+    <string name="printer_printing">Impresión</string>
+    <string name="printer_tare">Tara</string>
+    <string name="printer_total">Total</string>
+    <string name="scanning">Buscando dispositivos…</string>
+    <string name="select_device">seleccionar un dispositivo para conectar</string>
+    <string name="sensor_role">Remolque</string>
+    <string name="socket_closed">Conexión cerrada.</string>
+    <string name="socket_connecting">Conectándose a dispositivo</string>
+    <string name="socket_failed">La conexión falló.</string>
+    <string name="state_get_hr">Cargando datos</string>
+    <string name="state_get_info">Cargando información</string>
+    <string name="state_set_bluetooth_name">Renombrar</string>
+    <string name="state_set_collector">Camión</string>
+    <string name="state_set_config">Ajuste</string>
+    <string name="state_set_sensor">Remolque</string>
+    <string name="state_set_zero">Puesta a cero</string>
+    <string name="state_set_zero_message">¿Quiere guardar en %1$s el valor de presión actual?</string>
+    <string name="tab_text_0">CAMIÓN</string>
+    <string name="tab_text_1">CAMIÓN SEMI-REMOLQUE</string>
+    <string name="tab_text_2">CAMIÓN REMOLQUE</string>
+    <string name="tab_text_3">TRACTOR REMOLQUE</string>
+    <string name="tire_pressure">Presión [bar]</string>
+    <string name="tire_pressure_max">Presión Max %1$s psi</string>
+    <string name="tire_pressure_min">Presión Mín %1$s psi</string>
+    <string name="tire_pressure_range">Presión %1$d / %2$d [bar]</string>
+    <string name="tire_sensor_id">ID del sensor</string>
+    <string name="tire_temperature_max">Temperatura Max %1$d °C</string>
+    <string name="tire_voltage_min">Tensione batteria Min %1$s V</string>
+    <string name="title_activity_configurator">Configuración T1</string>
+    <string name="title_activity_diagnostic">Diagnóstico</string>
+    <string name="title_activity_edit">Editar</string>
+    <string name="title_activity_image_model">Modelo de vehículo</string>
+    <string name="title_activity_printer">Impresión</string>
+    <string name="title_activity_setup_tires">Configuración de neumáticos</string>
+    <string name="title_activity_tpms">TPMS</string>
+    <string name="title_other_devices">Otros dispositivos disponibles</string>
+    <string name="title_paired_devices">Dispositivos emparejados</string>
+    <string name="total_gross_weight">Peso bruto total</string>
+    <string name="total_net_weight">Peso neto total</string>
+    <string name="total_weight">Peso total</string>
+    <string name="trailer_gross">Bruto remolque</string>
+    <string name="trailer_gross_weight">Peso bruto remolque</string>
+    <string name="trailer_net_weight">Peso neto remolque</string>
+    <string name="trailer_tare">Tara remolque</string>
+    <string name="trailer_weight">Peso remolque</string>
+    <string name="trailer_wrong_address">¡INCORRECTO!</string>
+    <string name="truck_gross">Bruto camión</string>
+    <string name="truck_gross_weight">Peso bruto camión</string>
+    <string name="truck_net_weight">Peso neto camión</string>
+    <string name="truck_tare">Tara camión</string>
+    <string name="truck_weight">Peso camión</string>
+    <string name="unit_prompt">Unidad</string>
+    <string name="weighing_input">Peso en [kg]</string>
+    <string name="weight_gross">Bruto</string>
+    <string name="dialog_no_active_vehicle">Ningún vehículo activo.</string>
+    <string name="menu_reset_config">Restablecer configuración</string>
+    <string name="state_reset_configuration_message">¿Quieres restablecer la configuración?</string>
+
+    <!-- Software update -->
+    <string name="message_no_internet_connection">No internet connection.</string>
+    <string name="pref_send_data_real_time">Send weighing in real time</string>
+    <string name="pref_category_title_software_update">Update</string>
+    <string name="pref_check_update">Verificación automática de actualizaciones</string>
+    <string name="pref_check_update_summary">Comprobación automática de actualizaciones de software.</string>
+    <string name="dialog_software_update_available">Hay una actualización de software disponible %s (%d).</string>
+    <string name="dialog_title_download_update_mobile">Software update via mobile network</string>
+    <string name="dialog_message_download_update_mobile">This type of update may exhaust the available data package or charge additional costs. Alternatively, use a Hotspot or Wi-Fi network.\nPackage size 20 MB.</string>
+    <string name="dialog_button_update">Update</string>
+    <string name="dialog_device_save_to_complete">Pulse el botón para guardar la configuración.</string>
+
+    <!-- Notifications T1 / Beacon / Equipment -->
+    <string name="notification_title_equipment_found">Equipment found with ID</string>
+    <string name="notification_message_t1_service">A service for managing the Bluetooth connections of the T1 system.</string>
+
+    <!-- Cloud service -->
+    <string name="pref_category_title_cloud_service">Cloud service</string>
+    <string name="pref_cloud_service_enabled">Enable the service</string>
+
+</resources>

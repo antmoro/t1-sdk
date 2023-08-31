@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="pref_units">Unità di misura</string>
+    <string name="pref_weighing_method">Metodo pesata</string>
+    <string name="pref_weighing_method_summary">Peso %1$s</string>
+    <string name="pref_precision">Precisione decimali</string>
+    <string name="pref_weight_accuracy">Arrotondamento peso</string>
+    <string name="pref_weight_accuracy_summary">Precisione del peso totale.</string>
+    <string name="pref_accuracy_value">Precisione arrotondamento</string>
+    <string name="pref_accuracy_value_summary">%1$s [kg]</string>
+    <string name="pref_correction_weight">Correzione peso</string>
+    <string name="pref_threshold">Soglia di carico</string>
+    <string name="pref_threshold_summary">Peso lordo della soglia di carico.</string>
+    <string name="pref_threshold_value">Peso lordo soglia</string>
+    <string name="pref_threshold_value_summary">%1$s [kg]</string>
+    <string name="pref_autoconnect">Auto connessione</string>
+    <string name="pref_autoconnect_summary">Tenta la connessione al dispositivo.</string>
+    <string name="pref_autoconnect_value">Tentativi di connessione</string>
+    <string name="pref_autoconnect_value_summary">Massimo %1$s tentativi.</string>
+
+    <string name="pref_weighing_method_net">Netto</string>
+    <string name="pref_weighing_method_gross">Lordo</string>
+
+    <string name="pref_category_title_weighing">Pesatura</string>
+    <string name="pref_category_title_connection">Connessione Bluetooth</string>
+    <string name="pref_category_title_equipment">Gestione attrezzature</string>
+    <string name="pref_digital_input_enabled">Ingressi digitali</string>
+    <string name="pref_equipment_enabled">Ricerca attrezzatura</string>
+    <string name="pref_equipment_scan_time">Durata ricerca</string>
+    <string name="pref_equipment_scan_time_summary">Ricerca l\'attrezzatura per %s.</string>
+
+    <string-array name="pref_units_entries">
+        <item>Chilogrammi <i>[kg]</i></item>
+        <item>Quintali <i>[q]</i></item>
+        <item>Tonnellate <i>[t]</i></item>
+        <item>Libbre <i>[lb]</i></item>
+    </string-array>
+    <string-array name="pref_units_values">
+        <item>[kg]</item>
+        <item>[q]</item>
+        <item>[t]</item>
+        <item>[lb]</item>
+    </string-array>
+    <string name="pref_weighing_method_default">Lordo</string>
+    <string-array name="pref_weighing_method_entries">
+        <item>Peso Netto</item>
+        <item>Peso Lordo</item>
+    </string-array>
+    <string-array name="pref_weighing_method_values">
+        <item>Netto</item>
+        <item>Lordo</item>
+    </string-array>
+    <string-array name="pref_precision_entries">
+        <item>Zero <i>13542</i></item>
+        <item>Uno <i>141,1</i></item>
+        <item>Due <i>12,65</i></item>
+        <item>Tre <i>5,621</i></item>
+    </string-array>
+    <string-array name="pref_precision_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="pref_accuracy_value_entries">
+        <item>10 [kg]</item>
+        <item>20 [kg]</item>
+        <item>50 [kg]</item>
+        <item>100 [kg]</item>
+    </string-array>
+    <string-array name="pref_accuracy_value_values">
+        <item>10</item>
+        <item>20</item>
+        <item>50</item>
+        <item>100</item>
+    </string-array>
+
+</resources>

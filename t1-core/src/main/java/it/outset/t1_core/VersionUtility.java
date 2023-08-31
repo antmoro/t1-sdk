@@ -1,6 +1,8 @@
 package it.outset.t1_core;
 
+import android.app.ActivityManager;
 import android.content.Context;
+import android.content.pm.ConfigurationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
@@ -30,6 +32,14 @@ public class VersionUtility {
             return -1;
         }
     }
+
+
+    public static boolean isSupportedOpenGlEs2(Context context) {
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        ConfigurationInfo configurationInfo = activityManager.getDeviceConfigurationInfo();
+        return configurationInfo.reqGlEsVersion >= 0x20000;
+    }
+
 
     /**
      * Compares two version strings, using Semantic Versioning convention. See <a href="http://semver.org/">http://semver.org/</a>.
@@ -63,11 +73,7 @@ public class VersionUtility {
                         if (nums1[1] < nums2[1]) return 1;
                         else if (nums1[1] > nums2[1]) return -1;
                         else {
-                            if (nums1[2] < nums2[2]) return 1;
-                            else if (nums1[2] > nums2[2]) return -1;
-                            else {
-                                return 0;
-                            }
+                            return Integer.compare(nums2[2], nums1[2]);
                         }
                     }
                 } else {

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_units">Units</string>
+    <string name="pref_weighing_method">Weighing Method</string>
+    <string name="pref_weighing_method_summary">%1$s weighing</string>
+    <string name="pref_precision">Decimals precision</string>
+    <string name="pref_weight_accuracy">Weight accuracy</string>
+    <string name="pref_weight_accuracy_summary">Precision of the total weight.</string>
+    <string name="pref_accuracy_value">Accuracy value</string>
+    <string name="pref_accuracy_value_summary">%1$s [kg]</string>
+    <string name="pref_correction_weight">Correction weight</string>
+    <string name="pref_correction_weight_summary" translatable="false">%1$.1f %%</string>
+    <string name="pref_threshold">Threshold of load</string>
+    <string name="pref_threshold_summary">Gross weight of the load threshold.</string>
+    <string name="pref_threshold_value">Gross weight threshold</string>
+    <string name="pref_threshold_value_summary">%1$s [kg]</string>
+    <string name="pref_autoconnect">Auto-connect</string>
+    <string name="pref_autoconnect_summary">Attempts to connect to the device.</string>
+    <string name="pref_autoconnect_value">Connection attempts</string>
+    <string name="pref_autoconnect_value_summary">Maximum of %1$s attempts.</string>
+
+    <string name="pref_weighing_method_net">Net</string>
+    <string name="pref_weighing_method_gross">Gross</string>
+
+    <string name="pref_category_title_weighing">Weighing</string>
+    <string name="pref_category_title_connection">Bluetooth connection</string>
+    <string name="pref_category_title_equipment">Equipment management</string>
+    <string name="pref_digital_input_enabled">Digital input</string>
+    <string name="pref_equipment_enabled">Scan equipment</string>
+    <string name="pref_equipment_scan_time">Scan period</string>
+    <string name="pref_equipment_scan_time_summary">Scanning %s for the equipment.</string>
+
+    <string name="pref_units_default" translatable="false">[t]</string>
+    <string-array name="pref_units_entries">
+        <item>Kilograms <i>[kg]</i></item>
+        <item>Quintals <i>[q]</i></item>
+        <item>Tons <i>[t]</i></item>
+        <item>Pounds <i>[lb]</i></item>
+    </string-array>
+    <string-array name="pref_units_values">
+        <item>[kg]</item>
+        <item>[q]</item>
+        <item>[t]</item>
+        <item>[lb]</item>
+    </string-array>
+
+    <string name="pref_weighing_method_default">Gross</string>
+    <string-array name="pref_weighing_method_entries">
+        <item>Net weight</item>
+        <item>Gross weight</item>
+    </string-array>
+    <string-array name="pref_weighing_method_values">
+        <item>Net</item>
+        <item>Gross</item>
+    </string-array>
+
+    <string name="pref_precision_default" translatable="false">2</string>
+    <string-array name="pref_precision_entries">
+        <item>Zero <i>13542</i></item>
+        <item>One <i>141,1</i></item>
+        <item>Two <i>12,65</i></item>
+        <item>Three <i>5,621</i></item>
+    </string-array>
+    <string-array name="pref_precision_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <bool name="pref_weight_accuracy_default">false</bool>
+    <string name="pref_accuracy_value_default" translatable="false">10</string>
+    <string-array name="pref_accuracy_value_entries">
+        <item>10 [kg]</item>
+        <item>20 [kg]</item>
+        <item>50 [kg]</item>
+        <item>100 [kg]</item>
+    </string-array>
+    <string-array name="pref_accuracy_value_values">
+        <item>10</item>
+        <item>20</item>
+        <item>50</item>
+        <item>100</item>
+    </string-array>
+
+    <string name="pref_correction_weight_default" translatable="false">100</string>
+
+    <bool name="pref_threshold_default">false</bool>
+    <string name="pref_threshold_value_default" translatable="false">30000</string>
+
+    <bool name="pref_autoconnect_enabled_default">true</bool>
+    <integer name="pref_autoconnect_max_retries_value_default">10</integer>
+
+    <string name="pref_equipment_scan_time_default" translatable="false">600</string>
+
+    <bool name="pref_cloud_service_default">true</bool>
+
+    <bool name="pref_check_update_default">true</bool>
+
+</resources>

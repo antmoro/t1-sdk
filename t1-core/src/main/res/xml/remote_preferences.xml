@@ -1,0 +1,16 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:hapticFeedbackEnabled="true">
+
+    <PreferenceCategory app:title="Servizio Cloud">
+
+        <EditTextPreference
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            app:defaultValue=""
+            app:key="cloud_host_settings"
+            app:title="Indirizzo Web API" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

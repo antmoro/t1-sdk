@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_accuracy_value">Genauigkeit des Gewichts</string>
+    <string name="pref_accuracy_value_summary">%1$s [kg]</string>
+    <string name="pref_autoconnect">Automatische Verbindung</string>
+    <string name="pref_autoconnect_summary">Versucht eine Verbindung herzustellen.</string>
+    <string name="pref_autoconnect_value">Versuche Verbindungsherstellung</string>
+    <string name="pref_autoconnect_value_summary">Maximal %1$s Versuche.</string>
+    <string name="pref_correction_weight">Korrektur (des) Gewicht(s)</string>
+    <string name="pref_precision">Genauigkeit Nachkommastellen</string>
+    <string name="pref_threshold">Schwellenwert Gewicht (Überladung)</string>
+    <string name="pref_threshold_summary">Bruttogewicht des Schwellenwertes der Ladung. </string>
+    <string name="pref_threshold_value">Schwellenwert Bruttogewicht</string>
+    <string name="pref_threshold_value_summary">%1$s [kg]</string>
+    <string name="pref_units">Einheiten</string>
+    <string name="pref_weighing_method">Wiegemethode</string>
+    <string name="pref_weighing_method_gross">Brutto</string>
+    <string name="pref_weighing_method_net">Netto(gewicht)</string>
+    <string name="pref_weighing_method_summary">%1$s Gewicht</string>
+    <string name="pref_weight_accuracy">Genauigkeit (des) Gewicht(s)</string>
+    <string name="pref_weight_accuracy_summary">Genauigkeit (des) Gesamtgewicht(s).</string>
+
+    <!-- Settings -->
+    <string name="pref_category_title_weighing">Weighing</string>
+    <string name="pref_category_title_connection">Bluetooth connection</string>
+    <string name="pref_category_title_equipment">Equipment management</string>
+    <string name="pref_digital_input_enabled">Digital input</string>
+    <string name="pref_equipment_enabled">Scan equipment</string>
+    <string name="pref_equipment_scan_time">Scan period</string>
+    <string name="pref_equipment_scan_time_summary">Scanning %s for the equipment.</string>
+
+    <string-array name="pref_units_entries">
+        <item>Kilograms <i>[kg]</i></item>
+        <item>Quintals <i>[q]</i></item>
+        <item>Tons <i>[t]</i></item>
+        <item>Pounds <i>[lb]</i></item>
+    </string-array>
+    <string-array name="pref_units_values">
+        <item>[kg]</item>
+        <item>[q]</item>
+        <item>[t]</item>
+        <item>[lb]</item>
+    </string-array>
+
+    <string name="pref_weighing_method_default">Brutto</string>
+    <string-array name="pref_weighing_method_entries">
+        <item>Net weight</item>
+        <item>Gross weight</item>
+    </string-array>
+    <string-array name="pref_weighing_method_values">
+        <item>Net</item>
+        <item>Gross</item>
+    </string-array>
+
+    <string-array name="pref_precision_entries">
+        <item>Zero <i>13542</i></item>
+        <item>One <i>141,1</i></item>
+        <item>Two <i>12,65</i></item>
+        <item>Three <i>5,621</i></item>
+    </string-array>
+    <string-array name="pref_precision_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="pref_accuracy_value_entries">
+        <item>10 [kg]</item>
+        <item>20 [kg]</item>
+        <item>50 [kg]</item>
+        <item>100 [kg]</item>
+    </string-array>
+    <string-array name="pref_accuracy_value_values">
+        <item>10</item>
+        <item>20</item>
+        <item>50</item>
+        <item>100</item>
+    </string-array>
+
+</resources>

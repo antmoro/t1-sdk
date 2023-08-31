@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_units">Unité de poids</string>
+    <string name="pref_weighing_method">Affichage poids</string>
+    <string name="pref_weighing_method_summary">%1$s poids</string>
+    <string name="pref_precision">Decimales de precision</string>
+    <string name="pref_weight_accuracy">Résolution du poids</string>
+    <string name="pref_weight_accuracy_summary">Résolution du poids total.</string>
+    <string name="pref_accuracy_value">Valeur de precision</string>
+    <string name="pref_accuracy_value_summary">%1$s [kg]</string>
+    <string name="pref_correction_weight">Correction du poids</string>
+    <string name="pref_threshold">Seuil de charge</string>
+    <string name="pref_threshold_summary">Poids brut du seuil de charge.</string>
+    <string name="pref_threshold_value">Seuil de poids brut</string>
+    <string name="pref_threshold_value_summary">%1$s [kg]</string>
+    <string name="pref_autoconnect">Auto-connection</string>
+    <string name="pref_autoconnect_summary">Tentative de connection au module.</string>
+    <string name="pref_autoconnect_value">Tentative de connection</string>
+    <string name="pref_autoconnect_value_summary">Maximum de %1$s tentatives.</string>
+
+    <string name="pref_weighing_method_net">Net</string>
+    <string name="pref_weighing_method_gross">Brut</string>
+
+    <!-- Settings -->
+    <string name="pref_category_title_weighing">Pesage</string>
+    <string name="pref_category_title_connection">Connexion Bluetooth</string>
+    <string name="pref_digital_input_enabled">Digital input</string>
+    <string name="pref_category_title_equipment">Gestion du matériel</string>
+    <string name="pref_equipment_enabled">Matériel de numérisation</string>
+    <string name="pref_equipment_scan_time">Période de numérisation</string>
+    <string name="pref_equipment_scan_time_summary">Matériel de numérisation pour %s.</string>
+
+    <string-array name="pref_units_entries">
+        <item>Kilogramme <i>[kg]</i></item>
+        <item>Quintal <i>[q]</i></item>
+        <item>Tonne <i>[t]</i></item>
+        <item>Livre <i>[lb]</i></item>
+    </string-array>
+    <string-array name="pref_units_values">
+        <item>[kg]</item>
+        <item>[q]</item>
+        <item>[t]</item>
+        <item>[lb]</item>
+    </string-array>
+
+    <string name="pref_weighing_method_default">Brut</string>
+    <string-array name="pref_weighing_method_entries">
+        <item>Poids net</item>
+        <item>Poids brut</item>
+    </string-array>
+    <string-array name="pref_weighing_method_values">
+        <item>Net</item>
+        <item>Brut</item>
+    </string-array>
+
+    <string-array name="pref_precision_entries">
+        <item>Zéro <i>13542</i></item>
+        <item>1 <i>141,1</i></item>
+        <item>2 <i>12,65</i></item>
+        <item>3 <i>5,621</i></item>
+    </string-array>
+    <string-array name="pref_precision_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="pref_accuracy_value_entries">
+        <item>10 [kg]</item>
+        <item>20 [kg]</item>
+        <item>50 [kg]</item>
+        <item>100 [kg]</item>
+    </string-array>
+    <string-array name="pref_accuracy_value_values">
+        <item>10</item>
+        <item>20</item>
+        <item>50</item>
+        <item>100</item>
+    </string-array>
+
+</resources>

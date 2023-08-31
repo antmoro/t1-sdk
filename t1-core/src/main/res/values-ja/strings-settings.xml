@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_units">単位</string>
+    <string name="pref_weighing_method">測定方法</string>
+    <string name="pref_weighing_method_summary">%1$s 重量</string>
+    <string name="pref_precision">小数点以下の表示</string>
+    <string name="pref_weight_accuracy">重量の正確性</string>
+    <string name="pref_weight_accuracy_summary">合計重量の精度</string>
+    <string name="pref_accuracy_value">正確性</string>
+    <string name="pref_accuracy_value_summary">%1$s [kg]</string>
+    <string name="pref_correction_weight">重量補正</string>
+    <string name="pref_threshold">積載上限の基準値</string>
+    <string name="pref_threshold_summary">総重量の積載上限基準値</string>
+    <string name="pref_threshold_value">総重量上限基準値</string>
+    <string name="pref_threshold_value_summary">%1$s [kg]</string>
+    <string name="pref_autoconnect">自動接続</string>
+    <string name="pref_autoconnect_summary">デバイスへの接続を試みてます</string>
+    <string name="pref_autoconnect_value">接続を試みてます</string>
+    <string name="pref_autoconnect_value_summary">最大の%1$s試行回数</string>
+
+    <string name="pref_weighing_method_net">積載物重量</string>
+    <string name="pref_weighing_method_gross">車両総重量</string>
+
+    <string name="pref_category_title_weighing">計量</string>
+    <string name="pref_category_title_connection">Bluetooth 接続</string>
+    <string name="pref_category_title_equipment">機器管理</string>
+    <string name="pref_digital_input_enabled">Digital input</string>
+    <string name="pref_equipment_enabled">スキャン装置</string>
+    <string name="pref_equipment_scan_time">スキャン期間</string>
+    <string name="pref_equipment_scan_time_summary">機器の %s をスキャンしています.</string>
+
+    <string-array name="pref_units_entries">
+        <item>Kilograms <i>[kg]</i></item>
+        <item>Quintals <i>[q]</i></item>
+        <item>Tons <i>[t]</i></item>
+        <item>Pounds<i>[lb]</i></item>
+    </string-array>
+    <string-array name="pref_units_values">
+        <item>[kg]</item>
+        <item>[q]</item>
+        <item>[t]</item>
+        <item>[lb]</item>
+    </string-array>
+
+    <string name="pref_weighing_method_default">車両重量</string>
+    <string-array name="pref_weighing_method_entries">
+        <item>Net weight</item>
+        <item>Gross weight</item>
+    </string-array>
+    <string-array name="pref_weighing_method_values">
+        <item>Net</item>
+        <item>Gross</item>
+    </string-array>
+
+    <string-array name="pref_precision_entries">
+        <item>Zero <i>13542</i></item>
+        <item>One <i>141,1</i></item>
+        <item>Two <i>12,65</i></item>
+        <item>Three <i>5,621</i></item>
+    </string-array>
+    <string-array name="pref_precision_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="pref_accuracy_value_entries">
+        <item>10 [kg]</item>
+        <item>20 [kg]</item>
+        <item>50 [kg]</item>
+        <item>100 [kg]</item>
+    </string-array>
+    <string-array name="pref_accuracy_value_values">
+        <item>10</item>
+        <item>20</item>
+        <item>50</item>
+        <item>100</item>
+    </string-array>
+
+</resources>
