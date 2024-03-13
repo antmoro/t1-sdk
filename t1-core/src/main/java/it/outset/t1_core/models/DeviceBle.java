@@ -3,6 +3,7 @@ package it.outset.t1_core.models;
 import android.bluetooth.BluetoothDevice;
 import android.text.TextUtils;
 
+@Deprecated
 public class DeviceBle {
 
     private int fwVersion;
