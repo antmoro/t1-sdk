@@ -10,8 +10,8 @@ android {
     defaultConfig {
         minSdk 21
         targetSdk 34
-        versionCode 4
-        versionName "0.4.0-alpha01"
+        versionCode 5
+        versionName "0.4.0-alpha02"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -65,7 +65,7 @@ afterEvaluate {
 
                 groupId = 'com.github.antmoro'
                 artifactId = 't1-core'
-                version = '0.4.0-alpha01'
+                version = '0.4.0-alpha02'
             }
         }
     }
