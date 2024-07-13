@@ -49,7 +49,7 @@ public class VersionUtility {
      * @return 0 if the versions are equal, 1 if version v1 is before version v2, -1 if version v1 is after version v2, -2 if version format is invalid.
      */
     public static int compareVersions(String v1, String v2) {
-        if (v1 == null || v2 == null || v1.trim().equals("") || v2.trim().equals("")) return -2;
+        if (v1 == null || v2 == null || v1.trim().isEmpty() || v2.trim().isEmpty()) return -2;
         else if (v1.equals(v2)) return 0;
         else {
             boolean valid1 = v1.matches("\\d+\\.\\d+\\.\\d+");
