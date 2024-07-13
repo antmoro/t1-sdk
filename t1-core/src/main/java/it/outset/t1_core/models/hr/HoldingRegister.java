@@ -6,10 +6,10 @@ import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 
 import java.util.ArrayList;
-import java.util.HexFormat;
 import java.util.List;
 
 import it.outset.t1_core.Constants.*;
+import it.outset.t1_core.base.Result;
 
 public class HoldingRegister {
 
@@ -314,19 +314,23 @@ public class HoldingRegister {
      * Blocco di dati
      */
 
-    public static int[] parseHeader(String header) throws DecoderException {
+    public static Result<int[]> parseHeader(String header) {
         int[] empty = new int[]{0, 0};
         if (header.length() < 7)
-            return empty;
+            return Result.success(empty);
 
-        // HRr0000 valori ASCII HEX
-        byte[] payload = Hex.decodeHex(header.substring(3, 7));
-        int offset = payload[0];
-        int length = payload[1];
-        if (offset == 0 && length == 0)
-            return empty;
+        try {
+            // HRr0000 valori ASCII HEX
+            byte[] payload = Hex.decodeHex(header.substring(3, 7));
+            int offset = payload[0];
+            int length = payload[1];
+            if (offset == 0 && length == 0)
+                return Result.success(empty);
 
-        return new int[]{offset, length};
+            return Result.success(new int[]{offset, length});
+        } catch (DecoderException e) {
+            return Result.error(e);
+        }
     }
 
     /**
@@ -335,23 +339,27 @@ public class HoldingRegister {
      * @param base64 Stringa con header e payload in Base64
      * @return
      */
-    public static int[] parseBlock(String base64) throws DecoderException {
+    public static Result<int[]> parseBlock(String base64) {
         if (base64.length() < 7)
-            return new int[0];
+            return Result.success(new int[0]);
 
-        // HRr0000 valori ASCII HEX
-        byte[] header = Hex.decodeHex(base64.substring(3, 7));
-        int offset = header[0];
-        int length = header[1];
-        if (length == 0 || length - offset <= 0)
-            return new int[0];
+        try {
+            // HRr0000 valori ASCII HEX
+            byte[] header = Hex.decodeHex(base64.substring(3, 7));
+            int offset = header[0];
+            int length = header[1];
+            if (length == 0 || length - offset <= 0)
+                return Result.success(new int[0]);
 
-        byte[] payload = Base64.decode(base64.substring(HEADER_LENGTH), Base64.NO_WRAP);
-        int[] block = new int[length];
-        for (int i = 0; i < length; i++) {
-            int r = i * 2;
-            block[i] = (payload[r] << 8 & 0xFF00) | (payload[r + 1] & 0xFF);
+            byte[] payload = Base64.decode(base64.substring(HEADER_LENGTH), Base64.NO_WRAP);
+            int[] block = new int[length];
+            for (int i = 0; i < length; i++) {
+                int r = i * 2;
+                block[i] = (payload[r] << 8 & 0xFF00) | (payload[r + 1] & 0xFF);
+            }
+            return Result.success(block);
+        } catch (DecoderException e) {
+            return Result.error(e);
         }
-        return block;
     }
 }

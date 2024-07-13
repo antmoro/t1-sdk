@@ -1,6 +1,5 @@
 package it.outset.t1_core.models.cu;
 
-import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothDevice;
 import android.text.TextUtils;
 
@@ -13,11 +12,12 @@ import it.outset.t1_core.Constants.*;
 import it.outset.t1_core.Firmware;
 import it.outset.t1_core.Hardware;
 import it.outset.t1_core.models.hr.HoldingRegister;
+import it.outset.t1_core.type.FirmwareType;
+import it.outset.t1_core.type.HardwareType;
 
 /**
  *
  */
-@SuppressLint("MissingPermission")
 public class ControlUnit {
     private long id;
     private int deviceId;
@@ -39,8 +39,8 @@ public class ControlUnit {
     private Pattern prefixPattern = Pattern.compile(BLUETOOTH.NAME_PREFIX_PATTERN);
 
     public ControlUnit() {
-        firmware = new Firmware();
-        hardware = new Hardware();
+        firmware = new Firmware(FirmwareType.TX4.getVersionName());
+        hardware = new Hardware(HardwareType.K008_01.getVersionName());
         tpmsList = new ArrayList<>();
         axesList = new ArrayList<>();
         sensorsList = new ArrayList<>();
@@ -98,6 +98,7 @@ public class ControlUnit {
         this.weightCorrection = weightCorrection;
     }
 
+/*
     public String getName() {
         if (bluetoothDevice == null)
             return "Dummy Bluetooth device";
@@ -119,6 +120,7 @@ public class ControlUnit {
     public boolean isNameEmpty() {
         return bluetoothDevice == null || TextUtils.isEmpty(bluetoothDevice.getName());
     }
+*/
 
     public String getAddress() {
         if (bluetoothDevice == null)

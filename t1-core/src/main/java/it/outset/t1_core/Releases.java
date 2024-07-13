@@ -7,21 +7,21 @@ import android.text.TextUtils;
  */
 
 public class Releases {
-    private String _version;
+    private String version;
 
     public String getVersion() {
-        return _version;
+        return version;
     }
 
-    public void setVersion(String _version) {
-        this._version = _version.replace('|', '.');
+    public void setVersion(String version) {
+        this.version = version.replace('|', '.');
     }
 
     public int compare(String version) {
-        return VersionUtility.compareVersions(this._version, version);
+        return VersionUtility.compareVersions(this.version, version);
     }
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(_version);
+        return !TextUtils.isEmpty(version);
     }
 }

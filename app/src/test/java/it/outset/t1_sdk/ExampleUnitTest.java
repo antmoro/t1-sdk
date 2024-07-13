@@ -15,7 +15,7 @@ import it.outset.t1_core.models.cu.ControlUnit;
 public class ExampleUnitTest {
     @Test
     public void firmware_getVersion() {
-        Firmware firmware = new Firmware();
+        Firmware firmware = new Firmware("0.1.0");
         assertEquals("0.1.0", firmware.getVersion());
     }
 
