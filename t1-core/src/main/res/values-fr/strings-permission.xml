@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bluetooth_enabled">Bluetooth activé</string>
+    <string name="failed_to_enable_bluetooth">Échec de l’activation de Bluetooth</string>
+</resources>

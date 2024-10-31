@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bluetooth_enabled">Bluetoothが有効になりました</string>
+    <string name="failed_to_enable_bluetooth">Bluetoothを有効にできませんでした</string>
+</resources>
