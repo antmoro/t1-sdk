@@ -317,7 +317,7 @@ public class HoldingRegister {
     public static Result<int[]> parseHeader(String header) {
         int[] empty = new int[]{0, 0};
         if (header.length() < 7)
-            return Result.success(empty);
+            return Result.error(new Exception("Header length empty"));
 
         try {
             // HRr0000 valori ASCII HEX
@@ -325,7 +325,7 @@ public class HoldingRegister {
             int offset = payload[0];
             int length = payload[1];
             if (offset == 0 && length == 0)
-                return Result.success(empty);
+                return Result.error(new Exception("Header length empty"));
 
             return Result.success(new int[]{offset, length});
         } catch (DecoderException e) {
