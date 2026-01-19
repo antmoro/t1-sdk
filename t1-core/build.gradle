@@ -38,14 +38,14 @@ android {
 
 dependencies {
     implementation 'androidx.core:core-ktx:1.17.0'
-    def lifecycle_version = "2.9.4"
+    def lifecycle_version = "2.10.0"
     def arch_version = "2.2.0"
 
     implementation 'androidx.preference:preference-ktx:1.2.1'
     implementation 'com.google.code.gson:gson:2.13.2'
     implementation 'com.jakewharton.timber:timber:5.0.1'
-    implementation 'org.apache.commons:commons-lang3:3.19.0'
-    implementation 'commons-codec:commons-codec:1.19.0'
+    implementation 'org.apache.commons:commons-lang3:3.20.0'
+    implementation 'commons-codec:commons-codec:1.20.0'
     implementation 'org.apache.commons:commons-math3:3.6.1'
 
     // ViewModel

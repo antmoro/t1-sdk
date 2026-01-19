@@ -1,25 +1,17 @@
-package it.outset.t1_core.type;
+package it.outset.t1_core.type
 
-public enum FirmwareType {
+enum class FirmwareType(@JvmField val versionName: String) {
     TX2("1.0.0"),
     TX4("1.7.4");
 
-    private final String versionName;
-
-    FirmwareType(String versionName) {
-        this.versionName = versionName;
-    }
-
-    public String getVersionName() {
-        return versionName;
-    }
-
-    public static FirmwareType fromVersionName(String versionName) {
-        for (FirmwareType type : values()) {
-            if (type.versionName.equals(versionName)) {
-                return type;
+    companion object {
+        fun fromVersionName(versionName: String?): FirmwareType? {
+            for (type in entries) {
+                if (type.versionName == versionName) {
+                    return type
+                }
             }
+            return null
         }
-        return null;
     }
 }

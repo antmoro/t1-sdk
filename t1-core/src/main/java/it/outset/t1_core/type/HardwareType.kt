@@ -1,55 +1,34 @@
-package it.outset.t1_core.type;
+package it.outset.t1_core.type
 
-public enum HardwareType {
-    T1("SFPN001", 4, (byte) 0b0000_1111, 4, 2),
-    TX4("T008.02", 4, (byte) 0b0000_1111, 4, 2),
-    T011_01("T011.01", 4, (byte) 0b0000_1111, 4, 2),
-    T011_10("T011.10", 4, (byte) 0b0000_1111, 4, 2),
-    K008_01("K008.01", 4, (byte) 0b0000_1111, 4, 2),
-    K008_10("K008.10", 8, (byte) 0b0000_1111, 4, 2),
-    K009_00("K009.00", 8, (byte) 0b1111_1111, 4, 2),
-    K009_10("K009.10", 8, (byte) 0b1111_1111, 4, 2);
+enum class HardwareType(
+    @JvmField val versionName: String,
+    val adcMax: Int,
+    val adcMaxBitmask: Byte,
+    val axesMax: Int,
+    val adcAxesMax: Int,
+    val isNodeOnly: Boolean
+) {
+    T1("SFPN001", 4, 15.toByte(), 4, 2, false),
+    TX4("T008.02", 4, 15.toByte(), 4, 2, false),
+    T011_01("T011.01", 4, 15.toByte(), 4, 2, false),
+    T011_10("T011.10", 4, 15.toByte(), 4, 2, false),
+    K008_01("K008.01", 4, 15.toByte(), 4, 2, false),
+    K008_10("K008.10", 4, 15.toByte(), 4, 2, false),
+    K009_00("K009.00", 8, 255.toByte(), 4, 2, false),
+    K009_10("K009.10", 8, 255.toByte(), 4, 2, false),
+    K006_10("K006.10", 8, 255.toByte(), 4, 2, true),  // Prototype only
+    K006_20("K006.20", 8, 255.toByte(), 4, 2, true);
 
-    private final String versionName;
-    private final int adcMax;
-    private final byte adcMaxBitmask;
-    private final int axesMax;
-    private final int adcAxesMax;
-
-    HardwareType(String versionName, int adcMax, byte adcMaxBitmask, int axesMax, int adcAxesMax) {
-        this.versionName = versionName;
-        this.adcMax = adcMax;
-        this.adcMaxBitmask = adcMaxBitmask;
-        this.axesMax = axesMax;
-        this.adcAxesMax = adcAxesMax;
-    }
-
-    public String getVersionName() {
-        return versionName;
-    }
-
-    public int getAdcMax() {
-        return adcMax;
-    }
-
-    public byte getAdcMaxBitmask() {
-        return adcMaxBitmask;
-    }
-
-    public int getAxesMax() {
-        return axesMax;
-    }
-
-    public int getAdcAxesMax() {
-        return adcAxesMax;
-    }
-
-    public static HardwareType fromVersionName(String versionName) {
-        for (HardwareType type : values()) {
-            if (type.versionName.equals(versionName)) {
-                return type;
+    companion object {
+        @JvmStatic
+        fun fromVersionName(versionName: String?): HardwareType? {
+            val version = versionName?.replace('|', '.')
+            for (type in entries) {
+                if (type.versionName == version) {
+                    return type
+                }
             }
+            return null
         }
-        return null;
     }
 }

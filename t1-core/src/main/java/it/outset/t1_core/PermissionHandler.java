@@ -86,6 +86,7 @@ public class PermissionHandler {
     private PermissionCallback callback;
     private List<String> requiredPermissions;
     private boolean needsManageExternalStorage = false;
+    private Map<String, Boolean> pendingPermissionResults = null;
 
     public interface PermissionCallback {
         void onPermissionsResult(Map<String, Boolean> results);
@@ -179,7 +180,13 @@ public class PermissionHandler {
     }
 
     public void checkBluetoothEnabled() {
-        if (!BluetoothAdapter.getDefaultAdapter().isEnabled()) {
+        BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
+        if (adapter == null) {
+            // Device doesn't support Bluetooth
+            callback.onBluetoothEnabledResult(false);
+            return;
+        }
+        if (!adapter.isEnabled()) {
             // Bluetooth is not enabled
             requestBluetoothEnable();
         } else {
@@ -228,6 +235,8 @@ public class PermissionHandler {
 
     private void handlePermissionResult(Map<String, Boolean> results) {
         if (needsManageExternalStorage) {
+            // Store permission results to merge with MANAGE_EXTERNAL_STORAGE result later
+            pendingPermissionResults = new HashMap<>(results);
             requestManageExternalStorage();
         } else {
             callback.onPermissionsResult(results);
@@ -253,15 +262,23 @@ public class PermissionHandler {
     }
 
     private void checkManageExternalStoragePermission() {
-        Map<String, Boolean> results = null;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            results = new HashMap<>(requiredPermissions.stream()
-                    .collect(Collectors.toMap(permission -> permission,
-                            permission -> ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED)));
+        Map<String, Boolean> results;
+
+        // Use stored permission results if available (preserves user's denial decisions)
+        if (pendingPermissionResults != null) {
+            results = new HashMap<>(pendingPermissionResults);
+            pendingPermissionResults = null;
         } else {
-            results = new HashMap<>();
-            for (String permission : requiredPermissions) {
-                results.put(permission, ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED);
+            // Fallback: re-check permissions (used when only MANAGE_EXTERNAL_STORAGE was needed)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                results = new HashMap<>(requiredPermissions.stream()
+                        .collect(Collectors.toMap(permission -> permission,
+                                permission -> ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED)));
+            } else {
+                results = new HashMap<>();
+                for (String permission : requiredPermissions) {
+                    results.put(permission, ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED);
+                }
             }
         }
 

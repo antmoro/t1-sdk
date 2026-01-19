@@ -39,8 +39,8 @@ public class ControlUnit {
     private Pattern prefixPattern = Pattern.compile(BLUETOOTH.NAME_PREFIX_PATTERN);
 
     public ControlUnit() {
-        firmware = new Firmware(FirmwareType.TX4.getVersionName());
-        hardware = new Hardware(HardwareType.K008_01.getVersionName());
+        firmware = new Firmware(FirmwareType.TX4.versionName);
+        hardware = new Hardware(HardwareType.K008_01.versionName);
         tpmsList = new ArrayList<>();
         axesList = new ArrayList<>();
         sensorsList = new ArrayList<>();
