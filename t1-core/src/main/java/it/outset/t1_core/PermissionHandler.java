@@ -176,6 +176,11 @@ public class PermissionHandler {
             requiredPermissions.add(android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
         }
 
+        // POST_NOTIFICATIONS permission required for Android 13+ (API 33+)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            requiredPermissions.add(android.Manifest.permission.POST_NOTIFICATIONS);
+        }
+
         requestPermissions();
     }
 
