@@ -23,12 +23,22 @@ enum class HardwareType(
     companion object {
         @JvmStatic
         fun fromVersionName(versionName: String?): HardwareType? {
+            if (versionName == null) return null
             for (type in entries) {
-                if (type.versionName == versionName) {
+                if (matchesPattern(type.versionName, versionName)) {
                     return type
                 }
             }
             return null
+        }
+
+        private fun matchesPattern(pattern: String, input: String): Boolean {
+            val normalized = pattern.replace('|', '.')
+            if (normalized.length != input.length) return false
+            for (i in normalized.indices) {
+                if (normalized[i] != 'x' && normalized[i] != input[i]) return false
+            }
+            return true
         }
     }
 }
