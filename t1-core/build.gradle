@@ -5,12 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'it.outset.t1_core'
+    namespace = 'it.outset.t1_core'
     compileSdk = 36
 
     defaultConfig {
         minSdk 23
-        targetSdk 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
