@@ -189,6 +189,19 @@ public class PermissionHandler {
         requestPermissions();
     }
 
+    /**
+     * Pure decision logic for whether ACCESS_BACKGROUND_LOCATION still needs to be requested.
+     * Extracted as a static, dependency-free method so it can be unit-tested on the JVM.
+     * Below API 29 (Q) background location is implicitly granted with foreground location.
+     */
+    static boolean computeNeedsBackgroundLocation(int sdkInt, boolean fineGranted,
+                                                  boolean coarseGranted, boolean backgroundGranted) {
+        if (sdkInt < Build.VERSION_CODES.Q) {
+            return false;
+        }
+        return (fineGranted || coarseGranted) && !backgroundGranted;
+    }
+
     public void checkBluetoothEnabled() {
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
         if (adapter == null) {
