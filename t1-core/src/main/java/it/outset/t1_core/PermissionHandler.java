@@ -83,6 +83,8 @@ public class PermissionHandler {
     private ActivityResultLauncher<String[]> permissionLauncher;
     private ActivityResultLauncher<Intent> manageStorageLauncher;
     private ActivityResultLauncher<Intent> enableBtLauncher;
+    private ActivityResultLauncher<String> backgroundLocationLauncher;
+    private BackgroundLocationCallback backgroundLocationCallback;
     private PermissionCallback callback;
     private List<String> requiredPermissions;
     private boolean needsManageExternalStorage = false;
@@ -95,11 +97,16 @@ public class PermissionHandler {
         void onBluetoothEnabledResult(boolean enabled);
     }
 
+    public interface BackgroundLocationCallback {
+        void onResult(boolean granted);
+    }
+
     public PermissionHandler(ComponentActivity activity) {
         this.context = activity;
         initPermissionLauncher(activity);
         initManageStorageLauncher(activity);
         initEnableBtLauncher(activity);
+        initBackgroundLocationLauncher(activity);
     }
 
     public PermissionHandler(Fragment fragment) {
@@ -107,6 +114,7 @@ public class PermissionHandler {
         initPermissionLauncher(fragment);
         initManageStorageLauncher(fragment);
         initEnableBtLauncher(fragment);
+        initBackgroundLocationLauncher(fragment);
     }
 
     private void initPermissionLauncher(ComponentActivity activity) {
@@ -150,6 +158,28 @@ public class PermissionHandler {
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> checkBluetoothEnabled()
         );
+    }
+
+    private void initBackgroundLocationLauncher(ComponentActivity activity) {
+        backgroundLocationLauncher = activity.registerForActivityResult(
+                new ActivityResultContracts.RequestPermission(),
+                this::handleBackgroundLocationResult
+        );
+    }
+
+    private void initBackgroundLocationLauncher(Fragment fragment) {
+        backgroundLocationLauncher = fragment.registerForActivityResult(
+                new ActivityResultContracts.RequestPermission(),
+                this::handleBackgroundLocationResult
+        );
+    }
+
+    private void handleBackgroundLocationResult(boolean granted) {
+        if (backgroundLocationCallback != null) {
+            BackgroundLocationCallback cb = backgroundLocationCallback;
+            backgroundLocationCallback = null;
+            cb.onResult(granted);
+        }
     }
 
     @SuppressLint("ObsoleteSdkInt")
@@ -200,6 +230,36 @@ public class PermissionHandler {
             return false;
         }
         return (fineGranted || coarseGranted) && !backgroundGranted;
+    }
+
+    /**
+     * True when the app should still request ACCESS_BACKGROUND_LOCATION: API 29+, a foreground
+     * location permission already granted, background not yet granted. Returns false when MDM
+     * has pre-granted it (checkSelfPermission already true).
+     */
+    @SuppressLint("ObsoleteSdkInt")
+    public boolean needsBackgroundLocation() {
+        boolean fine = ContextCompat.checkSelfPermission(context,
+                android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+        boolean coarse = ContextCompat.checkSelfPermission(context,
+                android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+        boolean background = ContextCompat.checkSelfPermission(context,
+                android.Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED;
+        return computeNeedsBackgroundLocation(Build.VERSION.SDK_INT, fine, coarse, background);
+    }
+
+    /**
+     * Launches the dedicated single-permission request for ACCESS_BACKGROUND_LOCATION. The OS
+     * requires this to be a separate request, after foreground location is already granted.
+     */
+    @SuppressLint("ObsoleteSdkInt")
+    public void requestBackgroundLocation(BackgroundLocationCallback cb) {
+        this.backgroundLocationCallback = cb;
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+            handleBackgroundLocationResult(true);
+            return;
+        }
+        backgroundLocationLauncher.launch(android.Manifest.permission.ACCESS_BACKGROUND_LOCATION);
     }
 
     public void checkBluetoothEnabled() {
