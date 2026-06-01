@@ -87,6 +87,7 @@ public class PermissionHandler {
     private List<String> requiredPermissions;
     private boolean needsManageExternalStorage = false;
     private Map<String, Boolean> pendingPermissionResults = null;
+    private boolean isRequestingPermissions = false;
 
     public interface PermissionCallback {
         void onPermissionsResult(Map<String, Boolean> results);
@@ -156,8 +157,12 @@ public class PermissionHandler {
         this.callback = callback;
         this.requiredPermissions = new ArrayList<>();
 
-        // Add required permissions based on API level
+        // Add required permissions based on API level.
+        // Su Android 12 (API 31)+ ACCESS_FINE_LOCATION va richiesto SEMPRE insieme a
+        // ACCESS_COARSE_LOCATION nella stessa richiesta: chiedendo solo FINE il sistema
+        // ignora/nega la richiesta (l'utente tocca "Consenti" ma FINE resta negato).
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requiredPermissions.add(android.Manifest.permission.ACCESS_COARSE_LOCATION);
             requiredPermissions.add(android.Manifest.permission.ACCESS_FINE_LOCATION);
         }
 
@@ -230,7 +235,15 @@ public class PermissionHandler {
             }
             callback.onPermissionsResult(results);
         } else if (!permissionsToRequest.isEmpty()) {
+            // Evita di rilanciare il dialog di sistema se una richiesta è già in corso.
+            // Senza questa guardia, onStart() (che richiama requestPermissions()) lancerebbe
+            // una seconda richiesta mentre quella avviata in onCreate() è ancora pendente,
+            // corrompendo il risultato e segnalando come negati permessi in realtà concessi.
+            if (isRequestingPermissions) {
+                return;
+            }
             // Request standard permissions
+            isRequestingPermissions = true;
             permissionLauncher.launch(permissionsToRequest.toArray(new String[0]));
         } else {
             // Only MANAGE_EXTERNAL_STORAGE is needed
@@ -239,6 +252,7 @@ public class PermissionHandler {
     }
 
     private void handlePermissionResult(Map<String, Boolean> results) {
+        isRequestingPermissions = false;
         if (needsManageExternalStorage) {
             // Store permission results to merge with MANAGE_EXTERNAL_STORAGE result later
             pendingPermissionResults = new HashMap<>(results);
