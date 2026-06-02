@@ -36,12 +36,23 @@ public abstract class AppPreferences {
     public final static String KEY_EQUIPMENT_ENABLED = "pref_equipment_enabled";
     public final static String KEY_EQUIPMENT_SCAN_TIME = "pref_equipment_scan_time";
     public final static String KEY_DIGITAL_INPUT_ENABLED = "pref_digital_input_enabled";
+    public static final String KEY_START_ON_BOOT = "pref_start_on_boot";
 
     public static final String KEY_CLOUD_SERVICE_ENABLED = "pref_cloud_service_enabled";
     public static final String KEY_CLOUD_HOST_SETTINGS = "pref_cloud_host_settings";
     public static final String KEY_PRIVATE_HOST_SETTINGS = "pref_private_host_settings";
     public final static String KEY_PRIVATE_HOST_ENABLED = "pref_private_host_enabled";
     public static final String KEY_CLOUD_SETTINGS = "pref_cloud_settings"; // Cloud remote.
+
+    /**
+     * Whether the app should auto-start tracking on BOOT_COMPLETED.
+     * Default true: a device that has never opened Settings still auto-starts at boot
+     * (the SwitchPreference default may not be persisted yet when BootCompleted runs).
+     */
+    public static boolean isStartOnBootEnabled(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getBoolean(KEY_START_ON_BOOT, true);
+    }
 
     // Dispositivo Bluetooth
     public String peripheralName;
