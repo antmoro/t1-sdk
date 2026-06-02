@@ -182,10 +182,26 @@ public class PermissionHandler {
         }
     }
 
-    @SuppressLint("ObsoleteSdkInt")
+    /**
+     * Request the standard app permissions WITHOUT all-files access. Most apps should use this:
+     * scoped / app-specific storage needs no permission on API 30+, and MANAGE_EXTERNAL_STORAGE is
+     * a Play-restricted permission whose Settings toggle is greyed out unless the manifest declares
+     * it. Apps that genuinely need broad filesystem access call the two-arg overload with true.
+     */
     public void requestAppPermissions(PermissionCallback callback) {
+        requestAppPermissions(callback, false);
+    }
+
+    /**
+     * @param requestManageExternalStorage when true (and API 30+), also route the user through the
+     *        MANAGE_EXTERNAL_STORAGE (all-files access) Settings screen. Only opt in when the app
+     *        truly needs it AND declares the permission in its manifest.
+     */
+    @SuppressLint("ObsoleteSdkInt")
+    public void requestAppPermissions(PermissionCallback callback, boolean requestManageExternalStorage) {
         this.callback = callback;
         this.requiredPermissions = new ArrayList<>();
+        this.needsManageExternalStorage = false;
 
         // Add required permissions based on API level.
         // Su Android 12 (API 31)+ ACCESS_FINE_LOCATION va richiesto SEMPRE insieme a
@@ -205,7 +221,8 @@ public class PermissionHandler {
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            needsManageExternalStorage = true;
+            // All-files access is opt-in: only request it when the caller asks for it.
+            needsManageExternalStorage = requestManageExternalStorage;
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requiredPermissions.add(android.Manifest.permission.READ_EXTERNAL_STORAGE);
             requiredPermissions.add(android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
